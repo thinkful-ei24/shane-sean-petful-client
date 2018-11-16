@@ -32,7 +32,7 @@ class Dashboard extends React.Component {
             <Pet species="Dogs" animalToAdopt={this.props.dogToAdopt} onAdoptPet={() => this.adoptDog()}/>
           </div>
         </main>
-        <AddPetForm />
+        {/* <AddPetForm /> */}
       </React.Fragment>
     );
   }
