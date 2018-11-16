@@ -1,9 +1,6 @@
 
 # Petful app
 
-
-# Petful app
-
 [Live project link](https://petful-client.now.sh)
 
 # Summary
