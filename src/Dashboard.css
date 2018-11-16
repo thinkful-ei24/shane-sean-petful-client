@@ -10,4 +10,5 @@ h1 {
   display: flex;
   flex-basis: 0;
   flex-wrap: wrap;
+  justify-content: center;
 }

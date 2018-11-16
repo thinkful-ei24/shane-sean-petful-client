@@ -3,6 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchPet, removePet} from './actions/pets';
 import Pet from './Pet';
+import AddPetForm from './add-pet-form';
 import './Dashboard.css';
 
 class Dashboard extends React.Component {
@@ -31,6 +32,7 @@ class Dashboard extends React.Component {
             <Pet species="Dogs" animalToAdopt={this.props.dogToAdopt} onAdoptPet={() => this.adoptDog()}/>
           </div>
         </main>
+        {/* <AddPetForm /> */}
       </React.Fragment>
     );
   }
