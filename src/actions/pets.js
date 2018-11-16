@@ -1,4 +1,4 @@
-const API_URI = 'http://localhost:8080/api/';
+const API_URI = 'https://petful-client.now.sh/api/';
 
 export const FETCH_PET_REQUEST = 'FETCH_PET_REQUEST';
 export const fetchPetRequest =(petType) => ({

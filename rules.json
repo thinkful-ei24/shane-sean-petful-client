@@ -1,0 +1,7 @@
+{
+  "rules": [
+    { "pathname": "/api/dog", "dest": "petful-server.now.sh/api/dog" },
+    { "pathname": "/api/cat", "dest": "petful-server.now.sh/api/cat" },
+    {"dest": "https://client-plkcedqbol.now.sh"}
+  ]
+  }
