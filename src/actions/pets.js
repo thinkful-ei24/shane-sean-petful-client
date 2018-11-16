@@ -61,6 +61,7 @@ export const removePet = (petType) => (dispatch) => {
           code: res.status
         });
       }
+      res.sendStatus(204);
       return res.json();
     })
     // .then(() => {
