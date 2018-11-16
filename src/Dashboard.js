@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Pet from './Pet';
+import './Dashboard.css';
 
 export default class Dashboard extends React.Component {
   adoptCat() {
@@ -13,11 +14,15 @@ export default class Dashboard extends React.Component {
 
   render() {
     return (
-      <main>
+      <React.Fragment>
         <h1>Petful</h1>
-        <Pet species="Cats" animalToAdopt={this.props.catToAdopt} onAdoptPet={() => this.adoptCat()}/>
-        <Pet species="Dogs" animalToAdopt={this.props.dogToAdopt} onAdoptPet={() => this.adoptDog()}/>
-      </main>
+        <main role="main">
+          <div className="content-container">
+            <Pet species="Cats" animalToAdopt={this.props.catToAdopt} onAdoptPet={() => this.adoptCat()}/>
+            <Pet species="Dogs" animalToAdopt={this.props.dogToAdopt} onAdoptPet={() => this.adoptDog()}/>
+          </div>
+        </main>
+      </React.Fragment>
     );
   }
 }

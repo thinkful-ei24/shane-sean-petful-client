@@ -1,5 +1,6 @@
 
 import React from 'react';
+import './Pet.css';
 
 export default function Pet(props) {
   const animal = props.animalToAdopt;
@@ -7,10 +8,10 @@ export default function Pet(props) {
   const animalDetailList = _getDetailsList(_extractDetails(animal));
 
   return (
-    <section>
+    <section className="pet-info-section">
       <h2>{props.species}</h2>
       <img src={animal.imageURL} alt={animal.imageDescription}></img>
-      <div className="pet-info">
+      <div className="pet-details">
         <dl>
           {animalDetailList}
         </dl>
@@ -26,7 +27,7 @@ function _getDetailsList(petDetailsObj) {
     const value = petDetailsObj[key];
     return (
       <React.Fragment>
-        <dt>{key[0].toUpperCase() + key.substr(1)}</dt>
+        <dt>{key[0].toUpperCase() + key.substr(1)}:</dt>
         <dd>{value}</dd>
       </React.Fragment>
     );
