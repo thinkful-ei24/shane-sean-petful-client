@@ -1,0 +1,20 @@
+
+img {
+  max-width: 400px;
+}
+
+dl {
+  list-style: none;
+}
+
+dt {
+  float: left;
+  clear: left;
+  margin-right: 0.5em;
+  font-weight: 600;
+}
+
+.pet-info-section {
+  margin-left: 10px;
+  margin-right: 10px;
+}
