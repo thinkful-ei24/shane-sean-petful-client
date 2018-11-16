@@ -4,6 +4,14 @@ import './Pet.css';
 
 export default function Pet(props) {
   const animal = props.animalToAdopt;
+  if(animal === null) {
+    return (
+      <section className="pet-info-section">
+        <h2>{props.species}</h2>
+        <div>Loading</div>
+      </section>
+    );
+  }
   // prep to render details
   const animalDetailList = _getDetailsList(_extractDetails(animal));
 

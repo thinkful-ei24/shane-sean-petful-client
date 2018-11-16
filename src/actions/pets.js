@@ -1,4 +1,4 @@
-const API_URI = 'http://localhost:3000/api/';
+const API_URI = 'http://localhost:8080/api/';
 
 export const FETCH_PET_REQUEST = 'FETCH_PET_REQUEST';
 export const fetchPetRequest =(petType) => ({
@@ -9,7 +9,8 @@ export const fetchPetRequest =(petType) => ({
 export const FETCH_PET_SUCCESS = 'FETCH_PET_SUCCESS';
 export const fetchPetSuccess = (petType ,pet) => ({
   type: 'FETCH_PET_SUCCESS',
-  pet
+  pet,
+  petType
 });
 
 export const FETCH_PET_FAILURE = 'FETCH_PET_FAILURE';
@@ -44,3 +45,38 @@ export const fetchPet = (petType) => (dispatch) => {
     })
 }
 
+export const removePet = (petType) => (dispatch) => {
+  dispatch(fetchPetRequest());
+
+  return fetch(API_URI + petType, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+    .then(res => {
+      if(!res.ok) {
+        return Promise.reject({
+          message: res.statusText,
+          code: res.status
+        });
+      }
+      return res.json();
+    })
+    // .then(() => {
+    //   return dispatch(fetchPet(petType));
+    // })
+    // .then(nextPetRes => {
+    //   if(!nextPetRes.ok) {
+    //     return Promise.reject({
+    //       message: nextPetRes.statusText,
+    //       code: nextPetRes.status
+    //     });
+    //   }
+    //   return nextPetRes.json();
+    // })
+    .catch(err => {
+      fetchPetFailure(err);
+      console.log(err);
+    })
+}

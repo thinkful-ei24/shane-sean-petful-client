@@ -1,15 +1,24 @@
 
 import React from 'react';
+import {connect} from 'react-redux';
+import {fetchPet, removePet} from './actions/pets';
 import Pet from './Pet';
 import './Dashboard.css';
 
-export default class Dashboard extends React.Component {
+class Dashboard extends React.Component {
+  componentDidMount(prevProps) {
+    this.props.dispatch(fetchPet('cat'));
+    this.props.dispatch(fetchPet('dog'));
+  }
+
   adoptCat() {
-    console.log('adopt this cat');
+    this.props.dispatch(removePet('cat'))
+      .then(() => this.props.dispatch(fetchPet('cat')))
   }
 
   adoptDog() {
-    console.log('adopt this dog');
+    this.props.dispatch(removePet('dog'))
+      .then(() => this.props.dispatch(fetchPet('dog')));
   }
 
   render() {
@@ -26,3 +35,10 @@ export default class Dashboard extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  dogToAdopt: state.dogToAdopt,
+  catToAdopt: state.catToAdopt,
+  loading: state.loading
+});
+export default connect(mapStateToProps)(Dashboard);

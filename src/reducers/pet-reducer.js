@@ -36,4 +36,5 @@ export const petReducer = (state = initialState, action) => {
     });
   }
 
+  return state;
 }
